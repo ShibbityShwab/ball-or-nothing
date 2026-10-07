@@ -1,0 +1,31 @@
+{
+  "model": "gpt-image-2-5-sunburst",
+  "size": 1024,
+  "generated": "2026-10-07T03:24:05.878Z",
+  "symbols": {
+    "BALL": [
+      "BALL.png"
+    ],
+    "NUT": [
+      "NUT.png"
+    ],
+    "SACK": [
+      "SACK.png"
+    ],
+    "COIN": [
+      "COIN.png"
+    ],
+    "WILD": [
+      "WILD.png"
+    ],
+    "VAULT": [
+      "VAULT.png"
+    ],
+    "LOSS": [
+      "LOSS.png"
+    ],
+    "BRAND": [
+      "BRAND.png"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+.qa/
+__pycache__/
+*.pyc
+.pytest_cache/
+env/
+library/
+
+# Full-resolution generator output. The shipped sprites live in frontend/assets/generated/;
+# these are kept locally so a re-run is not needed just to get a different size back.
+frontend/assets/raw/

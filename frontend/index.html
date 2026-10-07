@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>BALL OR NOTHING</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="machine">
+    <header class="brand">
+      <div class="brand-mark" id="brand-mark"></div>
+      <h1 class="brand-name">
+        <span class="brand-name-line">BALL</span>
+        <span class="brand-name-or">or</span>
+        <span class="brand-name-line">NOTHING</span>
+      </h1>
+      <p class="brand-tag" id="tag">Ten lines. One question.</p>
+    </header>
+
+    <section class="cabinet" id="cabinet">
+      <div class="cabinet-trim"></div>
+
+      <div class="maxwin-strip">
+        <span class="maxwin-label">MAX WIN</span>
+        <span class="maxwin-value">25,000<small>x</small></span>
+        <span class="maxwin-note">BALLGAME &middot; 5 VAULTS &middot; 20 spins</span>
+      </div>
+
+      <div class="reels reels--5x3" id="reels" aria-live="polite">
+        <svg class="payline-layer" id="payline-layer" viewBox="0 0 500 300" preserveAspectRatio="none"></svg>
+        <div class="reel" data-reel="0"><div class="reel-strip"></div></div>
+        <div class="reel" data-reel="1"><div class="reel-strip"></div></div>
+        <div class="reel" data-reel="2"><div class="reel-strip"></div></div>
+        <div class="reel" data-reel="3"><div class="reel-strip"></div></div>
+        <div class="reel" data-reel="4"><div class="reel-strip"></div></div>
+      </div>
+
+      <div class="bonus-bar" id="bonus-bar" hidden>
+        <div class="bonus-bar-left">
+          <span class="bonus-title">BALLGAME</span>
+          <span class="bonus-spins" id="bonus-spins">1 / 12</span>
+        </div>
+        <div class="bonus-mult" id="bonus-mult">1x</div>
+        <div class="bonus-bar-right">
+          <span class="bonus-total-label">TOTAL</span>
+          <span class="bonus-total" id="bonus-total">0.00</span>
+        </div>
+      </div>
+
+      <div class="mode-row" id="mode-row" role="group" aria-label="Risk mode">
+        <span class="mode-row-label">Risk</span>
+        <div class="mode-levels" id="mode-levels"></div>
+      </div>
+
+      <div class="readout">
+        <div class="readout-cell">
+          <span class="readout-label">Bet</span>
+          <span class="readout-value" id="ante">1.00</span>
+        </div>
+        <div class="readout-cell readout-cell--win">
+          <span class="readout-label">Win</span>
+          <span class="readout-value" id="win">0.00</span>
+        </div>
+        <div class="readout-cell">
+          <span class="readout-label">Balance</span>
+          <span class="readout-value" id="balance">1,000.00</span>
+        </div>
+      </div>
+
+      <div class="banner" id="banner" role="status" aria-live="assertive"></div>
+
+      <div class="controls">
+        <button class="spin" id="spin" type="button">
+          <span class="spin-label">SPIN</span>
+          <span class="spin-sub" id="spin-sub">1.00 bet</span>
+        </button>
+        <label class="toggle">
+          <input type="checkbox" id="fast" />
+          <span>Turbo</span>
+        </label>
+      </div>
+
+      <div class="bet-row">
+        <span class="bet-row-label">Bet</span>
+        <div class="bet-levels" id="bet-levels" role="group" aria-label="Bet level">
+          <button type="button" class="bet-level" data-bet="0.1">0.10</button>
+          <button type="button" class="bet-level" data-bet="0.5">0.50</button>
+          <button type="button" class="bet-level is-selected" data-bet="1">1.00</button>
+          <button type="button" class="bet-level" data-bet="5">5.00</button>
+        </div>
+      </div>
+
+      <div class="autospin" id="autospin">
+        <span class="autospin-label">Autospin</span>
+        <div class="autospin-counts" id="autospin-counts" role="group" aria-label="Autospin rounds">
+          <button type="button" class="autospin-count" data-count="10">10</button>
+          <button type="button" class="autospin-count" data-count="25">25</button>
+          <button type="button" class="autospin-count" data-count="50">50</button>
+          <button type="button" class="autospin-count" data-count="100">100</button>
+        </div>
+        <button type="button" class="autospin-stop" id="autospin-stop" hidden>STOP</button>
+        <span class="autospin-remaining" id="autospin-remaining" hidden></span>
+      </div>
+
+      <p class="status" id="status">Press SPIN to find out who you are.</p>
+    </section>
+
+    <section class="feed" id="feed">
+      <div class="feed-head">
+        <span class="feed-title">Recent wins</span>
+        <span class="feed-note">this session</span>
+      </div>
+      <ul class="feed-list" id="feed-list">
+        <li class="feed-empty" id="feed-empty">Nothing yet. That is the game.</li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <p class="foot-line">
+        RTP 97.00% all modes &middot;
+        hit rate <strong id="foot-hit">1 in 5.2</strong> &middot;
+        BALLGAME <strong>1 in 176</strong> &middot;
+        max win <strong id="foot-max">25,000x</strong>
+      </p>
+      <p class="foot-line foot-line--dim">
+        Demo mode: outcomes are simulated locally from the same math core that generates the
+        Stake Engine books. THE BYPASS is a memory minigame with no wager behind it -
+        nothing you do during a round can change what it pays. Risk mode is chosen at BET
+        TIME, so every round stays fully pre-computed. Not connected to a wallet.
+      </p>
+    </footer>
+  </div>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="overlay-inner" id="overlay-inner"></div>
+  </div>
+
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
